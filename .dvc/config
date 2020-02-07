@@ -1,4 +1,6 @@
 [core]
-remote = default
+remote = local_remote
 ['remote "default"']
-url = gs://cd4ml-continuous-intelligence-bucket-1
+url = /home/sogetiai/Desktop/cd4ml/dvc_remote_path
+['remote "local_remote"']
+url = /home/sogetiai/Desktop/cd4ml/dvc_remote_path
