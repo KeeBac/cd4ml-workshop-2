@@ -1,4 +1,5 @@
-FROM eu.gcr.io/continuous-intelligence/cd4ml-workshop:latest
+#FROM eu.gcr.io/continuous-intelligence/cd4ml-workshop:latest
+FROM continuumio/miniconda3:4.7.12-alpine
 
 USER root
 
