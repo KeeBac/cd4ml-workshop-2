@@ -3,22 +3,22 @@ FROM continuumio/miniconda3:4.7.12-alpine
 USER root
 
 # Always use the local requirements.txt to override the cloned one
-COPY requirements.txt /requirements.txt
+#COPY requirements.txt /requirements.txt
 
 ENV PATH=$PATH:/opt/conda/bin
 
-RUN mkdir -p /app/continuous-intelligence \
-  && apk --no-cache add git nano bash \
-  && git clone https://github.com/ThoughtWorksInc/continuous-intelligence-workshop.git /app/continuous-intelligence \
-  && mv /requirements.txt /app/continuous-intelligence/requirements.txt \
-  && cd /app/continuous-intelligence \
-  && mkdir -p /app/continuous-intelligence/data/raw \
-  && pip install --no-cache-dir --no-compile -r requirements.txt \
-  && conda list && conda clean -tipy \
-  && python /app/continuous-intelligence/src/download_data.py \
-  && python /app/continuous-intelligence/src/download_data.py --model
+RUN mkdir -p /app/continuous-intelligence/{src,data}
+
+#install dependencies
+RUN pip install --no-cache-dir --no-compile -r requirements.txt \
+  && conda list && conda clean -tipy
+
+COPY start.sh /app/continuous-intelligence
+COPY src /app/continuous-intelligence/src
+COPY data/decision_tree /app/continuous-intelligence/data/decision_tree
+
+RUN chmod +x /app/continuous-intelligence/start.sh
 
 EXPOSE 5005
 
 CMD ["/app/continuous-intelligence/start.sh"]
-
