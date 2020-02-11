@@ -20,6 +20,6 @@ COPY data/decision_tree /app/continuous-intelligence/data/decision_tree
 
 RUN chmod +x /app/continuous-intelligence/start.sh
 
-EXPOSE 5005
+EXPOSE 5005 80
 
 CMD ["/app/continuous-intelligence/start.sh"]
