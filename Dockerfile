@@ -18,5 +18,7 @@ RUN mkdir -p /app/continuous-intelligence \
   && python /app/continuous-intelligence/src/download_data.py \
   && python /app/continuous-intelligence/src/download_data.py --model
 
+EXPOSE 5005
+
 CMD ["/app/continuous-intelligence/start.sh"]
 
