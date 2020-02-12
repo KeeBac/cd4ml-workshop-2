@@ -7,20 +7,17 @@ COPY requirements.txt /requirements.txt
 
 ENV PATH=$PATH:/opt/conda/bin
 
-RUN mkdir -p /app/continuous-intelligence/{src,data} \
+RUN mkdir -p /app/continuous-intelligence \
   && apk --no-cache add git nano bash \
-  && mv /requirements.txt /app/continuous-intelligence/requirements.txt
+  && git clone https://github.com/ThoughtWorksInc/continuous-intelligence-workshop.git /app/continuous-intelligence \
+  && mv /requirements.txt /app/continuous-intelligence/requirements.txt \
+  && cd /app/continuous-intelligence \
+  && mkdir -p /app/continuous-intelligence/data/raw \
+  && pip install --no-cache-dir --no-compile -r requirements.txt \
+  && conda list && conda clean -tipy \
+  && python /app/continuous-intelligence/src/download_data.py \
+  && python /app/continuous-intelligence/src/download_data.py --model
 
-#install dependencies
-RUN pip install --no-cache-dir --no-compile -r /app/continuous-intelligence/requirements.txt \
-  && conda list && conda clean -tipy
-
-COPY start.sh /app/continuous-intelligence
-COPY src /app/continuous-intelligence/src
-COPY data/decision_tree /app/continuous-intelligence/data/decision_tree
-
-RUN chmod +x /app/continuous-intelligence/start.sh
-
-EXPOSE 5005 80
+EXPOSE 5005
 
 CMD ["/app/continuous-intelligence/start.sh"]
