@@ -8,6 +8,7 @@ COPY requirements.txt /requirements.txt
 ENV PATH=$PATH:/opt/conda/bin
 
 RUN mkdir -p /app/continuous-intelligence/{src,data} \
+  && apk --no-cache add git nano bash \
   && mv /requirements.txt /app/continuous-intelligence/requirements.txt
 
 #install dependencies
