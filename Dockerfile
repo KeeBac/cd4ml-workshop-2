@@ -1,6 +1,6 @@
 FROM continuumio/miniconda3:4.7.12-alpine
 
-USER root
+#USER root
 
 # Always use the local requirements.txt to override the cloned one
 COPY requirements.txt /requirements.txt
@@ -21,6 +21,6 @@ COPY data/decision_tree /app/continuous-intelligence/data/decision_tree
 
 RUN chmod +x /app/continuous-intelligence/start.sh
 
-EXPOSE 5005 80
+EXPOSE 5005
 
 CMD ["/app/continuous-intelligence/start.sh"]
