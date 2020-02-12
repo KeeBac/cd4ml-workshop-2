@@ -1,6 +1,6 @@
 FROM continuumio/miniconda3:4.7.12-alpine
 
-#USER root
+USER root
 
 # Always use the local requirements.txt to override the cloned one
 COPY requirements.txt /requirements.txt
