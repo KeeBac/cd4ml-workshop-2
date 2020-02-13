@@ -1,19 +1,19 @@
-md5: abb743c03595260cd41bff91cd88ff96
+md5: e6774d9d2590e0a180b8028e5de19e01
 cmd: python3 src/decision_tree.py
 deps:
 - md5: cd93b6020c635fbc703d692a0d5c3b4a
   path: data/splitter/train.csv
 - md5: c38869db7776de4a4298934196ce2991
   path: data/splitter/validation.csv
-- md5: 9d9d3aa3ea976641339d358538c01108
+- md5: 8bdaaf415c5a2ede4831bb8fa8e6010e
   path: src/decision_tree.py
 outs:
-- md5: 4db75ff64ab79d6415d658eb93852e4b
+- md5: 2110649c6a81d9ca8869bd98318a270b
   path: data/decision_tree/model.pkl
   cache: true
   metric: false
   persist: false
-- md5: 4461d85c84d1cff7fa84f6503c1fd374
+- md5: ba0b144d94a938360a0c42cac86d7703
   path: results/metrics.json
   cache: false
   metric: true
