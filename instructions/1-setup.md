@@ -66,6 +66,6 @@ git pull --rebase
 7. To test and see the application running locally, open a browser tab, go to
 http://localhost:5005, and you should see the application like:
 
-<kbd>![Sample application](./images/1-sample-app.png)</kbd>
+<kbd>![Sample application](./images/1-sample-app.png)</kbd> 
 
 8. Done! Go to [the next exercise](./2-deployment-pipeline.md)
