@@ -8,7 +8,6 @@ USE_MLFLOW = MLFLOW_TRACKING_URL is not None
 
 class track:
     def __enter__(self):
-        print('mlflow tracking url is',MLFLOW_TRACKING_URL,'use mlflow is',USE_MLFLOW)
         if USE_MLFLOW:
             mlflow.set_tracking_uri(uri=MLFLOW_TRACKING_URL)
             mlflow.set_experiment(TENANT)
