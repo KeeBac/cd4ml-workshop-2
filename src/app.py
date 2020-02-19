@@ -36,7 +36,7 @@ def index():
 
 @app.route('/prediction')
 def get_prediction():
-  loaded_model = joblib.load('data/decision_tree/model.pkl')
+  loaded_model = joblib.load('/app/continuous-intelligence/data/decision_tree/model.pkl')
 
   date_string = request.args.get('date')
 
