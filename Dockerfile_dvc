@@ -21,7 +21,8 @@ RUN aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID \
   && aws configure set default.region $AWS_REGION
   
 #updated model, push to dvc and git  
-RUN dvc repro model.pkl.dvc \
+RUN cd /app/continuous-intelligence \
+  && dvc repro model.pkl.dvc \
   && dvc push model.pkl.dvc \
   && git add model.pkl.dvc \
   && git commit -m 'model updated' \
