@@ -23,5 +23,5 @@ RUN mkdir -p /app/continuous-intelligence \
   && dvc push model.pkl.dvc \
   && git add model.pkl.dvc \
   && git commit -m 'model updated' \
-  && git push https://KeeBac:1fc0014de83c2dfa06c6c039aa9c2cc36a2f74b1@github.com/KeeBac/cd4ml-workshop-2.git
+  && git push https://$GIT_USER:$GIT_TOKEN@github.com/KeeBac/cd4ml-workshop-2.git
 
