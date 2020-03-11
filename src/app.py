@@ -27,8 +27,8 @@ products = {
 }
 
 TENANT = os.getenv('TENANT', 'local')
-FLUENTD_HOST = os.getenv('FLUENTD_HOST')
-FLUENTD_PORT = os.getenv('FLUENTD_PORT')
+FLUENTD_HOST = 'localhost' #os.getenv('FLUENTD_HOST')
+FLUENTD_PORT = 24224 #os.getenv('FLUENTD_PORT')
 
 @app.route('/')
 def index():
