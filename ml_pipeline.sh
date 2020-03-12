@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 #updated model, push to dvc and git  
 cd /app/continuous-intelligence && python src/test_script.py
