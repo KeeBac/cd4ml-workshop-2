@@ -29,4 +29,6 @@ RUN mkdir -p /app/continuous-intelligence \
   && pip install --no-cache-dir --no-compile -r requirements.txt \
   && conda list && conda clean -tipy
 
+RUN chmod +x /app/continuous-intelligence/ml_pipeline.sh
+
 CMD ["/app/continuous-intelligence/ml_pipeline.sh"]
