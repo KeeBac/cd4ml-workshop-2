@@ -29,6 +29,11 @@ RUN mkdir -p /app/continuous-intelligence \
   && pip install --no-cache-dir --no-compile -r requirements.txt \
   && conda list && conda clean -tipy
 
+#configure aws; will be used for dvc
+RUN aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID \
+  && aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY \
+  && aws configure set default.region $AWS_REGION
+
 RUN chmod +x /app/continuous-intelligence/ml_pipeline.sh
 
 CMD ["/app/continuous-intelligence/ml_pipeline.sh"]
