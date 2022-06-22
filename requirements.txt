@@ -1,6 +1,6 @@
 awscli==1.18.0
 dvc[s3]==0.71.0
-numpy==1.17.4
+numpy==1.22.0
 pandas==0.25.3
 pytest==5.3.0
 scikit-learn==0.21.3
